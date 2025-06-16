@@ -3,7 +3,7 @@ export const images = [
     {
         "key": "1974",
         "path": "1974.jpg",
-        "label": "197",
+        "label": "1974",
         "scale": 1,
         "speed": 1
     },
@@ -73,203 +73,175 @@ export const images = [
     {
         "key": "IMG_0086",
         "path": "IMG_0086.png",
-        "label": "NEED LABEL",
+        "label": "Cupcake",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0094",
         "path": "IMG_0094.png",
-        "label": "NEED LABEL",
+        "label": "Pizza De Pazza",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0109",
         "path": "IMG_0109.png",
-        "label": "NEED LABEL",
+        "label": "First Day",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0136",
         "path": "IMG_0136.png",
-        "label": "NEED LABEL",
+        "label": "Where is Puppy?",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0208",
         "path": "IMG_0208.png",
-        "label": "NEED LABEL",
+        "label": "Purple",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0231",
         "path": "IMG_0231.png",
-        "label": "NEED LABEL",
+        "label": "High Steppers",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0528",
         "path": "IMG_0528.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_0528_1",
-        "path": "IMG_0528_1.png",
-        "label": "NEED LABEL",
+        "label": "Performers",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0544",
         "path": "IMG_0544.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_0544_1",
-        "path": "IMG_0544_1.png",
-        "label": "NEED LABEL",
+        "label": "Laughers",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0568",
         "path": "IMG_0568.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_0568_1",
-        "path": "IMG_0568_1.png",
-        "label": "NEED LABEL",
+        "label": "Harry Potter",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0838",
         "path": "IMG_0838.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_0838_1",
-        "path": "IMG_0838_1.png",
-        "label": "NEED LABEL",
+        "label": "Bad Elf",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_0994",
         "path": "IMG_0994.png",
-        "label": "NEED LABEL",
+        "label": "Joey",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1066",
         "path": "IMG_1066.png",
-        "label": "NEED LABEL",
+        "label": "Yea No",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1257",
         "path": "IMG_1257.png",
-        "label": "NEED LABEL",
+        "label": "The Band",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1377",
         "path": "IMG_1377.png",
-        "label": "NEED LABEL",
+        "label": "San Fran",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1448",
         "path": "IMG_1448.png",
-        "label": "NEED LABEL",
+        "label": "More Piggies",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1590",
         "path": "IMG_1590.png",
-        "label": "NEED LABEL",
+        "label": "You are Number One",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1602",
         "path": "IMG_1602.png",
-        "label": "NEED LABEL",
+        "label": "Feet",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1610",
         "path": "IMG_1610.png",
-        "label": "NEED LABEL",
+        "label": "Cupcakes",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1626",
         "path": "IMG_1626.png",
-        "label": "NEED LABEL",
+        "label": "Ah Family",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1640",
         "path": "IMG_1640.png",
-        "label": "NEED LABEL",
+        "label": "Second Trip",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1664",
         "path": "IMG_1664.png",
-        "label": "NEED LABEL",
+        "label": "Baby",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1667",
         "path": "IMG_1667.png",
-        "label": "NEED LABEL",
+        "label": "Cupcak-Check",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1672",
         "path": "IMG_1672.png",
-        "label": "NEED LABEL",
+        "label": "Baby More",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1742",
         "path": "IMG_1742.png",
-        "label": "NEED LABEL",
+        "label": "Goal!!",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_1816",
         "path": "IMG_1816.png",
-        "label": "NEED LABEL",
+        "label": "Jake",
         "scale": 1,
         "speed": 1
     },
