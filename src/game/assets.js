@@ -820,6 +820,7 @@ export const images = [
         "speed": 1
     }
 ];
+
 export const particles = [
     {
         "key": "red_particle",
