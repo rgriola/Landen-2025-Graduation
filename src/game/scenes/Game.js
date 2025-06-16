@@ -90,7 +90,7 @@ export class Game extends Scene {
         const videoHeight = videoWidth * (9/16); // 
         
         // LOAD VIDEO BACKGROUND  
-        this.video = this.add.video(screenWidth/2, screenHeight/2, 'rivertimelapse')
+        this.video = this.add.video(screenWidth/2, screenHeight/2, 'background_rivertimelapse')
        // .setDisplaySize(videoWidth, videoHeight)
         .setScale(1)
         .setOrigin(0.5, 0.5)
@@ -98,8 +98,57 @@ export class Game extends Scene {
         .setMute(true)
         .setAlpha(0.8); // Slightly transparent
 
+        this.video1 = this.add.video(screenWidth/2, screenHeight/2, 'background_Puffins')
+       // .setDisplaySize(videoWidth, videoHeight)
+        .setScale(1)
+        .setOrigin(0.5, 0.5)
+        .setDepth(0)
+        .setMute(true)
+        .setAlpha(0.8); // Slightly transparent
+
+        
         // MISSING: You need to play the video
         this.video.play(true); // The 'true' parameter enables looping
+
+        // When ready to transition:
+        this.tweens.add({
+            targets: this.video,
+            alpha: 0,
+            duration: 1000,
+            delay: 5000,
+            onComplete: () => {
+                this.video.stop();
+                this.video1.play(true);
+                this.tweens.add({
+                    targets: this.video1,
+                    alpha: 1,
+                   // duration: 500,
+                    ease: 'Linear',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
+                    duration: 1000,
+                    repeat: -1,            // -1: infinity
+                    yoyo: false,
+                });
+            }
+        });
+        /*
+        // When ready to transition:
+        this.tweens.add({
+            targets: this.video1,
+            alpha: 0,
+            duration: 500,
+            onComplete: () => {
+                this.video1.stop();
+                this.video.play(true);
+                this.tweens.add({
+                    targets: this.video,
+                    alpha: 1,
+                    duration: 500
+                });
+            }
+        });*/
+
+
+
         this.cameras.main.setBackgroundColor(0x0088FF);
 
         // Add space bar to navigate to GameOver scene - no visual hint

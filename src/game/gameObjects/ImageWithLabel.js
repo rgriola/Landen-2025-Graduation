@@ -30,7 +30,7 @@ export class ImageWithLabel extends Phaser.GameObjects.Container {
 
         this.particles = scene.add.particles( 0,
                         this.image.displayHeight / 2 - 50,
-                        'red', {
+                        'red_particle', {
                             color: [ 0x040d61, 0xfacc22, 0xf89800, 0xf83600, 0x9f0404, 0x4b4a4f, 0x353438, 0x040404 ],
                            // lifespan: 1500,
                             angle: { min: -100, max: -300 },
