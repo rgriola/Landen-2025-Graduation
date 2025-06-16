@@ -248,427 +248,392 @@ export const images = [
     {
         "key": "IMG_1844",
         "path": "IMG_1844.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_2119-2",
-        "path": "IMG_2119-2.png",
-        "label": "NEED LABEL",
+        "label": "California",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2119",
         "path": "IMG_2119.png",
-        "label": "NEED LABEL",
+        "label": "Missing Gerbal",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2122",
         "path": "IMG_2122.png",
-        "label": "NEED LABEL",
+        "label": "Big Shake",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2176",
         "path": "IMG_2176.png",
-        "label": "NEED LABEL",
+        "label": "Arizona",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2178",
         "path": "IMG_2178.png",
-        "label": "NEED LABEL",
+        "label": "More Arizona",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2371",
         "path": "IMG_2371.png",
-        "label": "NEED LABEL",
+        "label": "Glad Hands",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2379",
         "path": "IMG_2379.png",
-        "label": "NEED LABEL",
+        "label": "Our Doggie",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2506",
         "path": "IMG_2506.png",
-        "label": "NEED LABEL",
+        "label": "Huggies",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_2767",
         "path": "IMG_2767.png",
-        "label": "NEED LABEL",
+        "label": "Grandpa Bob",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_3047",
         "path": "IMG_3047.png",
-        "label": "NEED LABEL",
+        "label": "Christmas Time",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_3051",
         "path": "IMG_3051.png",
-        "label": "NEED LABEL",
+        "label": "Jon Oliver Fanclub",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_3790",
         "path": "IMG_3790.png",
-        "label": "NEED LABEL",
+        "label": "Rainbows Over",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_3792",
         "path": "IMG_3792.png",
-        "label": "NEED LABEL",
+        "label": "MTV",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_3948",
         "path": "IMG_3948.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_4019",
-        "path": "IMG_4019.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_4021",
-        "path": "IMG_4021.png",
-        "label": "NEED LABEL",
+        "label": "Nose",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4073",
         "path": "IMG_4073.png",
-        "label": "NEED LABEL",
+        "label": "Brown Belt",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4075",
         "path": "IMG_4075.png",
-        "label": "NEED LABEL",
+        "label": "Safety First",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4153",
         "path": "IMG_4153.png",
-        "label": "NEED LABEL",
+        "label": "Cutie",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4193",
         "path": "IMG_4193.png",
-        "label": "NEED LABEL",
+        "label": "4 Cheese Souffle",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4422",
         "path": "IMG_4422.png",
-        "label": "NEED LABEL",
+        "label": "DC Feelings",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4423",
         "path": "IMG_4423.png",
-        "label": "NEED LABEL",
+        "label": "Yoda",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4453",
         "path": "IMG_4453.png",
-        "label": "NEED LABEL",
+        "label": "Hi",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_4500",
         "path": "IMG_4500.png",
-        "label": "NEED LABEL",
+        "label": "ADK",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_5005",
         "path": "IMG_5005.png",
-        "label": "NEED LABEL",
+        "label": "Grandparent",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_5311",
         "path": "IMG_5311.png",
-        "label": "NEED LABEL",
+        "label": "Another Diner",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_5402",
         "path": "IMG_5402.png",
-        "label": "NEED LABEL",
+        "label": "Blue Suede Shoes",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_5469",
         "path": "IMG_5469.png",
-        "label": "NEED LABEL",
+        "label": "Baby Blue Eyes",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_5495",
         "path": "IMG_5495.png",
-        "label": "NEED LABEL",
+        "label": "Yoguurrrt",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_6238",
         "path": "IMG_6238.png",
-        "label": "NEED LABEL",
+        "label": "Family Time",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_6254-2",
         "path": "IMG_6254-2.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_6254",
-        "path": "IMG_6254.png",
-        "label": "NEED LABEL",
+        "label": "Children of the Corn",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_6335",
         "path": "IMG_6335.png",
-        "label": "NEED LABEL",
+        "label": "Brooke & Landen",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_6586",
         "path": "IMG_6586.png",
-        "label": "NEED LABEL",
+        "label": "Central Perk",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_6686",
         "path": "IMG_6686.png",
-        "label": "NEED LABEL",
+        "label": "The Old Passy",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_6780",
         "path": "IMG_6780.png",
-        "label": "NEED LABEL",
+        "label": "Cafe Du Monde",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7211",
         "path": "IMG_7211.png",
-        "label": "NEED LABEL",
+        "label": "Litte Reporter",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7274",
         "path": "IMG_7274.png",
-        "label": "NEED LABEL",
+        "label": "Punch Up",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7287",
         "path": "IMG_7287.png",
-        "label": "NEED LABEL",
+        "label": "Battery Brain",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7292",
         "path": "IMG_7292.png",
-        "label": "NEED LABEL",
+        "label": "NYC Fishing",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7295",
         "path": "IMG_7295.png",
-        "label": "NEED LABEL",
+        "label": "Joey Da Piggy",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7296",
         "path": "IMG_7296.png",
-        "label": "NEED LABEL",
+        "label": "Joey",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7405",
         "path": "IMG_7405.png",
-        "label": "NEED LABEL",
+        "label": "Little Minion",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7479",
         "path": "IMG_7479.png",
-        "label": "NEED LABEL",
+        "label": "Random Cat",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7571",
         "path": "IMG_7571.png",
-        "label": "NEED LABEL",
+        "label": "Hi There",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7573",
         "path": "IMG_7573.png",
-        "label": "NEED LABEL",
+        "label": "A Line in the Ground",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_7916",
         "path": "IMG_7916.png",
-        "label": "NEED LABEL",
-        "scale": 1,
-        "speed": 1
-    },
-    {
-        "key": "IMG_7993",
-        "path": "IMG_7993.png",
-        "label": "NEED LABEL",
+        "label": "Working Hard",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_8229",
         "path": "IMG_8229.png",
-        "label": "NEED LABEL",
+        "label": "Gopher",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_8297 2",
         "path": "IMG_8297 2.png",
-        "label": "NEED LABEL",
+        "label": "Where is My Cello?",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_8368",
         "path": "IMG_8368.png",
-        "label": "NEED LABEL",
+        "label": "Angus The Runner",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_8977",
         "path": "IMG_8977.png",
-        "label": "NEED LABEL",
+        "label": "Violent Femmes",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9039",
         "path": "IMG_9039.png",
-        "label": "NEED LABEL",
+        "label": "Bedtime",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9259",
         "path": "IMG_9259.png",
-        "label": "NEED LABEL",
+        "label": "Deadpool 3",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9325",
         "path": "IMG_9325.png",
-        "label": "NEED LABEL",
+        "label": "Awwwwww",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9357",
         "path": "IMG_9357.png",
-        "label": "NEED LABEL",
+        "label": "Morning",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9407",
         "path": "IMG_9407.png",
-        "label": "NEED LABEL",
+        "label": "Coffee Time",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9710",
         "path": "IMG_9710.png",
-        "label": "NEED LABEL",
+        "label": "Yellow Shirt",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9783",
         "path": "IMG_9783.png",
-        "label": "NEED LABEL",
+        "label": "Kodak Moment",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "IMG_9968",
         "path": "IMG_9968.png",
-        "label": "NEED LABEL",
+        "label": "Banana Time",
         "scale": 1,
         "speed": 1
     },
@@ -696,7 +661,7 @@ export const images = [
     {
         "key": "Lea_Dog_Stroller",
         "path": "Lea_Dog_Stroller.png",
-        "label": "Lea %n Jake",
+        "label": "Lea & Jake",
         "scale": 1,
         "speed": 1
     },
@@ -829,7 +794,7 @@ export const images = [
     {
         "key": "sez-me-ice-cream",
         "path": "sez-me-ice-cream.png",
-        "label": "NEED LABEL",
+        "label": "Twist & Sprinkles",
         "scale": 1,
         "speed": 1
     },
