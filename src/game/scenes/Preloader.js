@@ -26,6 +26,7 @@ export class Preloader extends Scene
         // Any additional assets not in the configuration
         this.load.image('background', 'bg.png');
         this.load.image('logo', 'logo.png');
+        this.load.image('fullscreen', 'full-screen.png');
     }
 
     create ()

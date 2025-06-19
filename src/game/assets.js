@@ -344,6 +344,16 @@ export const images = [
         "speed": 1
     },
     {
+        "key": "IMG_4019",
+        "path": "IMG_4019.png",
+        "label": "NEED LABEL"
+    },
+    {
+        "key": "IMG_4021",
+        "path": "IMG_4021.png",
+        "label": "NEED LABEL"
+    },
+    {
         "key": "IMG_4073",
         "path": "IMG_4073.png",
         "label": "Brown Belt",
@@ -715,6 +725,13 @@ export const images = [
         "speed": 1
     },
     {
+        "key": "bagel_supreme",
+        "path": "bagel_supreme.png",
+        "label": "My Lunch",
+        "scale": 1,
+        "speed": 1
+    },
+    {
         "key": "bg",
         "path": "bg.png",
         "label": "background",
@@ -724,14 +741,14 @@ export const images = [
     {
         "key": "cameraman",
         "path": "cameraman.jpg",
-        "label": "Camera Woman",
+        "label": "Camera Obscura",
         "scale": 1,
         "speed": 1
     },
     {
         "key": "dadandme",
         "path": "dadandme.png",
-        "label": "Dad and Me",
+        "label": "Dad & Me",
         "scale": 1,
         "speed": 1
     },
@@ -741,6 +758,18 @@ export const images = [
         "label": "Dakota Love",
         "scale": 1,
         "speed": 1
+    },
+    {
+        "key": "diploma",
+        "path": "diploma.png",
+        "label": "Graduated",
+        "scale": 1,
+        "speed": 1
+    },
+    {
+        "key": "full-screen",
+        "path": "full-screen.png",
+        "label": "NEED LABEL"
     },
     {
         "key": "handholders",
@@ -774,6 +803,20 @@ export const images = [
         "key": "lucky",
         "path": "lucky.png",
         "label": "Luck Man",
+        "scale": 1,
+        "speed": 1
+    },
+    {
+        "key": "mom",
+        "path": "mom.png",
+        "label": "Bammy",
+        "scale": 1,
+        "speed": 1
+    },
+    {
+        "key": "oreo",
+        "path": "oreo.png",
+        "label": "Double Stuff",
         "scale": 1,
         "speed": 1
     },
@@ -820,13 +863,11 @@ export const images = [
         "speed": 1
     }
 ];
-
 export const particles = [
     {
         "key": "red_particle",
         "path": "red_particle.png",
-        "label": "NEED LABEL",
-        "scale": 1
+        "label": "NEED LABEL"
     }
 ];
 export const audio = [
@@ -837,9 +878,70 @@ export const audio = [
 ];
 export const videos = [
     {
+        "key": "I-love-You-1900",
+        "path": "I-love-You-1900.webm",
+        "label": "NEED LABEL"
+    },
+    {
+        "key": "IMG_1603",
+        "path": "IMG_1603.mp4",
+        "label": "Photographer",
+        "scale": 1,
+        "loop": false,
+        "muted": false,
+        "autoplay": false
+    },
+    {
+        "key": "IMG_1607",
+        "path": "IMG_1607.mp4",
+        "label": "Girl",
+        "scale": 1,
+        "loop": false,
+        "muted": false,
+        "autoplay": false
+    },
+    {
+        "key": "IMG_1609",
+        "path": "IMG_1609.mp4",
+        "label": "I am I am",
+        "scale": 1,
+        "loop": false,
+        "muted": false,
+        "autoplay": false
+    },
+    {
+        "key": "Landen_Dakota",
+        "path": "Landen_Dakota.mp4",
+        "label": "Mask",
+        "scale": 1,
+        "loop": false,
+        "muted": false,
+        "autoplay": false
+    },
+    {
+        "key": "Landen_Dakota",
+        "path": "Landen_Dakota.webm",
+        "label": "love dove"
+    },
+    {
         "key": "background_Puffins",
         "path": "PuffinsDownTown.mp4",
+        "label": "",
         "scale": 1,
+        "loop": false,
+        "muted": false,
+        "autoplay": false
+    },
+    {
+        "key": "i-Love-you-dakota",
+        "path": "i-Love-you-dakota.webm",
+        "label": "NEED LABEL"
+    },
+    {
+        "key": "puffinAlpha_1900",
+        "path": "puffinAlpha_1900.webm",
+        "label": "Puffin In Flight",
+        "scale": 0.1,
         "loop": false,
         "muted": false,
         "autoplay": false
@@ -847,6 +949,7 @@ export const videos = [
     {
         "key": "background_rivertimelapse",
         "path": "rivertimelapse.mp4",
+        "label": "",
         "scale": 1,
         "loop": false,
         "muted": false,
@@ -886,6 +989,14 @@ export const ASSETS = {
         });
     }
 };
+
+//  ffmpeg -i Landen_Dakota.mov -c:v vp9 -pix_fmt yuva420p -b:v 0 -crf 41 Landen_Dakota.webm
+//  maintain the aspect ratio and ensure the video fits within 1900x1000:
+//  ffmpeg -i i-Love-you-dakota.mov -c:v vp9 -vf "scale=min(1900\,iw):min(1000\,ih):force_original_aspect_ratio=decrease" -pix_fmt yuva420p -b:v 0 -crf 41 i-Love-you-dakota-1900.webm
+
+//  better quality but larger file size, lower the CRF value (e.g., from 41 to 31):
+// ffmpeg -i input.mov -c:v vp9 -vf scale=1900:1000 -pix_fmt yuva420p -b:v 0 -crf 31 output.webm
+
 
 
 

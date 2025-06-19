@@ -54,11 +54,21 @@ export const FONTS = {
             strokeThickness: 4,
             align: 'center',
         },
+        // Main heading style
+        birthday: {
+            fontFamily: '"Fraunces", serif',
+            fontSize: '60px',
+            fontWeight: '700',
+            color: '#F01643',
+            stroke: '#ffffff',
+            strokeThickness: 4,
+            align: 'center',
+        },
         
         // Secondary heading style
         subtitle: {
             fontFamily: '"Inconsolata", monospace',
-            fontSize: '24px',
+            fontSize: '30px',
             fontWeight: '400',
             color: '#ffff00',
             stroke: '#000000',
@@ -69,10 +79,11 @@ export const FONTS = {
         // Button text style
         button: {
             fontFamily: '"Montserrat", sans-serif',
-            fontSize: '20px',
+            fontSize: '25px',
             fontWeight: '700',
             color: '#ffffff',
             align: 'center',
+            strokeThickness: 1,
         },
         
         // Image label style
@@ -90,7 +101,7 @@ export const FONTS = {
         // Inside the styles object, modify the imageLabelA style:
         imageLabelA: {
             fontFamily: '"Proza Libre", sans-serif',
-            fontSize: '24px',
+            fontSize: '35px',
             fontWeight: '600',
             color: '#ffffff',
             stroke: '#000000',
@@ -125,9 +136,29 @@ export const FONTS = {
             fontSize: '16px',
             color: '#ffffff',
             align: 'left',
+            strokeThickness: 1,
         }
     },
     
+        // Helper to get a random label style
+    getRandomLabelStyle: function() {
+        const labelStyles = ['imageLabelA', 'imageLabel', 'button', 'subtitle', 'title'];
+        const randomStyle = labelStyles[Math.floor(Math.random() * labelStyles.length)];
+        return this.styles[randomStyle];
+    },
+    
+    // Original getStyle method
+    getStyle: function(styleName, overrides = {}) {
+        if (!this.styles[styleName]) {
+            console.warn(`Font style "${styleName}" not found!`);
+            return { ...overrides };
+        }
+        
+        return { ...this.styles[styleName], ...overrides };
+    }
+
+
+    /*
     // Function to create custom text styles by extending predefined ones
     getStyle(baseStyle, overrides = {}) {
         // Use a predefined style as the base
@@ -136,4 +167,7 @@ export const FONTS = {
         // Return a new object with base properties and overrides
         return { ...base, ...overrides };
     }
+    */
+
+
 };

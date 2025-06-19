@@ -10,12 +10,15 @@ export class ImageWithLabel extends Phaser.GameObjects.Container {
         this.image = scene.add.image(0, 0, texture);
         if (options.scale) this.image.setScale(options.scale);
 
+        // Randomize the font style unless specified in options
+        const fontStyle = options.fontStyle || FONTS.getRandomLabelStyle();
+        
         // Create the label text
         this.nameText = scene.add.text(
             0,
             this.image.displayHeight / 2 -10 + (options.textOffsetY || 0),
             options.labelPrefix || texture,
-            FONTS.styles.imageLabelA
+            fontStyle
         ).setOrigin(0.5, 0);
 
         // DEBUG TEXT
@@ -55,16 +58,16 @@ export class ImageWithLabel extends Phaser.GameObjects.Container {
     setPosition(x, y) {
         super.setPosition(x, y);
         return this;
-    }
+        }
 
     setDebugVisible(visible) {
         this.debugText.setVisible(visible);
-    }
+        }
 
     setVisible(visible) {
         super.setVisible(visible);
         return this;
-    }
+        }
 
     destroy(fromScene) {
         // This will destroy the container and all its children
@@ -72,7 +75,7 @@ export class ImageWithLabel extends Phaser.GameObjects.Container {
         console.log(`ImageWithLabel ${this.id} destroyed`);
         if (this.particles) {
             this.particles.destroy();
-        }
+            }
     }
 
     // Optionally, add methods for updating debug text, etc.
