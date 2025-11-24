@@ -13,7 +13,7 @@ module.exports = {
     mode: "production",
     entry: "./src/main.js",
     output: {
-        path: path.resolve(process.cwd(), 'dist'),
+        path: path.resolve(process.cwd(), 'docs'),
         filename: "./bundle.min.js"
     },
     devtool: false,
@@ -76,8 +76,6 @@ module.exports = {
         { from: 'public/full-screen.png', to: 'full-screen.png' },
         { from: 'public/favicon.png', to: 'favicon.png' },
         { from: 'public/manifest.json', to: 'manifest.json' },
-        // Service worker disabled for debugging
-        // { from: 'public/service-worker.js', to: 'service-worker.js' },
         { from: './style.css', to: 'style.css' }
     ],
 }),

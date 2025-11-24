@@ -1,26 +1,4 @@
-import { PATH_UTILS, ASSET_PATHS } from './config/paths.js';
-
-// Service Worker disabled for debugging
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     // Use centralized path configuration
-//     if (PATH_UTILS.isProduction()) {
-//       navigator.serviceWorker.register(ASSET_PATHS.SERVICE_WORKER)
-//         .then((registration) => {
-//           console.log('ServiceWorker registration successful with scope:', registration.scope);
-//         })
-//         .catch((err) => {
-//           console.log('ServiceWorker registration failed (app will still work):', err);
-//         });
-//     } else if (PATH_UTILS.isDevelopment()) {
-//       console.log('Service worker disabled for local development');
-//     }
-//   });
-// } else {
-//   console.log('Service workers not supported in this browser (app will still work)');
-// }
-
-console.log('Service Worker disabled for debugging');
+import { PATH_UTILS } from './config/paths.js';
 
 import { Boot } from './scenes/Boot';
 import { Preloader } from './scenes/Preloader';

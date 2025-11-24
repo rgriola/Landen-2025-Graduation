@@ -39,10 +39,6 @@ export const ASSET_PATHS = {
     // Icons for PWA manifest
     get ICONS() {
         return `${BASE_PATHS.CURRENT}/icons`;
-    },
-    // Service worker path
-    get SERVICE_WORKER() {
-        return `${BASE_PATHS.CURRENT}/service-worker.js`;
     }
 };
 
