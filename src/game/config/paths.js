@@ -46,16 +46,18 @@ export const ASSET_PATHS = {
 export const PATH_UTILS = {
     // Get full URL for root asset
     getRootAssetUrl(filename) {
-        return BASE_PATHS.CURRENT ? `${BASE_PATHS.CURRENT}/${filename}` : filename;
+        const cacheBuster = `?v=${Date.now()}`;
+        return BASE_PATHS.CURRENT ? `${BASE_PATHS.CURRENT}/${filename}${cacheBuster}` : `${filename}${cacheBuster}`;
     },
     
     // Get full URL for gallery asset
     getGalleryAssetUrl(filename) {
         // Assets are stored in the assets/ directory, but the JSON paths don't include this prefix
         const assetPath = `assets/${filename}`;
+        const cacheBuster = `?v=${Date.now()}`;
         return BASE_PATHS.CURRENT 
-            ? `${BASE_PATHS.CURRENT}/${assetPath}` 
-            : assetPath;
+            ? `${BASE_PATHS.CURRENT}/${assetPath}${cacheBuster}` 
+            : `${assetPath}${cacheBuster}`;
     },
     
     // Check if we're in development

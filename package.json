@@ -4,7 +4,7 @@
     "main": "src/main.js",
     "scripts": {
         "dev": "node log.js dev & webpack-dev-server --config webpack/config.js --open",
-        "build:github": "node log.js build & webpack --config webpack/config.prod.js --output-path docs"
+        "build:github": "node log.js build & webpack --config webpack/config.prod.js"
     },
     "repository": {
         "type": "git",
