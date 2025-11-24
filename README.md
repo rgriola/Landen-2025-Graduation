@@ -1,16 +1,79 @@
-# Phaser Webpack Template
+# Landen 2025 Graduation Project
 
-This is a Phaser 3 project template that uses webpack for bundling. It supports hot-reloading for quick development workflow and includes scripts to generate production-ready builds.
+An interactive art simulation celebrating Landen's graduation journey through a flowing display of memories, photos, and videos. Built with Phaser 3 and designed as a Progressive Web App.
 
-**[This Template is also available as a TypeScript version.](https://github.com/phaserjs/template-webpack-ts)**
+## 🎓 About This Project
 
-## for dev build. 
+This is a personal art project that showcases memories from Landen's life in an immersive, game-like environment where images and videos drift across the screen like flowing memories. Features include:
+
+- **Interactive Memory Stream** - Photos and videos continuously flow across the screen
+- **Multiple Viewing Modes** - Main simulation, gallery view, and fishbowl mode  
+- **Progressive Web App** - Can be installed on mobile and desktop devices
+- **Fullscreen Experience** - Optimized for immersive viewing
+- **Responsive Design** - Works on various screen sizes
+
+## 🚀 Quick Start
+
+### Development
+
+```bash
+npm install
 npm run dev
-npx webpack --config webpack/config.js
+```
 
-## for probuild 
-npm run build
-npx webpack --config webpack/config.prod.js
+### Build for GitHub Pages
+
+```bash
+npm run build:github
+```
+
+## 🎮 Controls & Features
+
+- **F Key or ⛶ Button**: Toggle fullscreen mode
+- **D Key**: Toggle debug mode (shows technical info)
+- **Main Menu**: Access different viewing modes:
+  - **Launch Project**: Main memory simulation
+  - **Gallery**: Browse all photos and videos
+  - **Fishbowl**: Alternative viewing experience
+
+## 📱 Live Demo
+
+Visit the live demo: [https://rgriola.github.io/Landen_2025_Grad/](https://rgriola.github.io/Landen_2025_Grad/)
+
+## 🚀 Deploying to GitHub Pages
+
+This project is set up to deploy easily to GitHub Pages:
+
+1. **Build the project for GitHub Pages:**
+   ```bash
+   npm run build:github
+   ```
+
+2. **Commit and push the `docs` folder:**
+   ```bash
+   git add docs/
+   git commit -m "Build for GitHub Pages"
+   git push origin main
+   ```
+
+3. **Enable GitHub Pages:**
+   - Go to your repository settings on GitHub
+   - Scroll down to "Pages" section
+   - Set Source to "Deploy from a branch"
+   - Select branch: `main` and folder: `/docs`
+   - Click Save
+
+The site will be available at: `https://yourusername.github.io/repository-name/`
+
+### Automated Deployment (Optional)
+
+The project includes a GitHub Actions workflow that automatically builds and deploys to GitHub Pages when you push to the main branch. This means you only need to:
+
+1. Make your changes
+2. Commit and push to main
+3. The site updates automatically!
+
+If you prefer manual deployment, just use the steps above.
 
 ### Versions
 
@@ -43,19 +106,20 @@ The local development server runs on `http://localhost:8080` by default. Please 
 
 Once the server is running you can edit any of the files in the `src` folder. Webpack will automatically recompile your code and then reload the browser.
 
-## Template Project Structure
-
-We have provided a default project structure to get you started. This is as follows:
+## Project Structure
 
 | Path                         | Description                                                |
 |------------------------------|------------------------------------------------------------|
-| `public/index.html`          | A basic HTML page to contain the game.                     |
-| `public/assets`              | Game sprites, audio, etc. Served directly at runtime.      |
-| `public/style.css`           | Global layout styles.                                      |
-| `src/main.js`                | Application bootstrap.                                     |
-| `src/game`                   | Folder containing the game code.                           |
-| `src/game/main.js`           | Game entry point: configures and starts the game.          |
-| `src/game/scenes`            | Folder with all Phaser game scenes.                        |
+| `public/index.html`          | Main HTML page for the application                        |
+| `public/assets/`             | Images, videos, audio files (100+ memories)               |
+| `public/assets.json`         | Asset manifest with metadata and labels                   |
+| `src/main.js`                | Application entry point                                    |
+| `src/game/main.js`           | Phaser game configuration and startup                     |
+| `src/game/scenes/`           | Game scenes (MainMenu, Game, AssetGallery, etc.)         |
+| `src/game/gameObjects/`      | Custom game objects (ImageWithLabel, VideoWithLabel)     |
+| `src/game/config/`           | Configuration files (fonts, etc.)                        |
+| `docs/`                      | Built files for GitHub Pages deployment                  |
+| `scripts/`                   | Build and asset generation scripts                       |
 
 
 ## Handling Assets

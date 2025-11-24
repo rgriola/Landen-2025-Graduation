@@ -6,6 +6,7 @@
         "dev": "node log.js dev & webpack-dev-server --config webpack/config.js --open",
         "build:both": "npm run dev && npm run copy:docs",
         "build": "node log.js build & webpack --config webpack/config.prod.js",
+        "build:github": "webpack --config webpack/config.prod.js --output-path docs",
         "dev-nolog": "webpack-dev-server --config webpack/config.js --open",
         "build-nolog": "webpack --config webpack/config.prod.js",
         "build:dist": "webpack --config webpack/config.js --output-path dist",
