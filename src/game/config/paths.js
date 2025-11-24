@@ -34,7 +34,8 @@ export const ASSET_PATHS = {
     },
     // Gallery assets (photos, videos, etc.)
     get ASSETS() {
-        return `${BASE_PATHS.CURRENT}/assets`;
+      //  return `${BASE_PATHS.CURRENT}/assets`;
+      return `https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/docs/assets`
     },
     // Icons for PWA manifest
     get ICONS() {
@@ -76,3 +77,8 @@ console.log('Path Configuration:', {
     basePath: BASE_PATHS.CURRENT,
     assetPath: ASSET_PATHS.ASSETS
 });
+
+// https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/public/assets/1974.jpg
+// https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/docs/assets/1974.jpg
+// docs/assets/1974.jpg
+// public/assets/1974.jpg
