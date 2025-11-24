@@ -27,13 +27,8 @@ export class Preloader extends Scene
         }
 
     preload() {
-        // Load the manifest first
+        // Load the manifest first (essential assets already loaded in Boot scene)
         this.load.json('assetsManifest', 'assets.json');
-
-        // Load root-level assets (these don't need assets/ prefix)
-        this.load.image('background', 'bg.png');
-        this.load.image('logo', 'logo.png');
-        this.load.image('fullscreen', 'full-screen.png');
     }
 
     create () {
