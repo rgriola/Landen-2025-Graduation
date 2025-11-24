@@ -29,7 +29,11 @@ export class Preloader extends Scene
 
     preload() {
         // Load the manifest first (essential assets already loaded in Boot scene)
-        this.load.json('assetsManifest', PATH_UTILS.getRootAssetUrl('assets.json'));
+        // assets.json is not in LFS, so use regular GitHub Pages path
+        const assetsJsonUrl = PATH_UTILS.isProduction() 
+            ? '/Landen-2025-Graduation/assets.json'
+            : PATH_UTILS.getRootAssetUrl('assets.json');
+        this.load.json('assetsManifest', assetsJsonUrl);
     }
 
     create () {
