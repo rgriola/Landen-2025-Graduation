@@ -47,18 +47,27 @@ export const ASSET_PATHS = {
 export const PATH_UTILS = {
     // Get full URL for root asset
     getRootAssetUrl(filename) {
-        const cacheBuster = `?v=${Date.now()}`;
-        return BASE_PATHS.CURRENT ? `${BASE_PATHS.CURRENT}/${filename}${cacheBuster}` : `${filename}${cacheBuster}`;
+        // Use GitHub LFS URL for production, regular path for development  
+        if (isGitHubPages) {
+            return `https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/docs/${filename}`;
+        } else {
+            // Local development - use regular path
+            const cacheBuster = `?v=${Date.now()}`;
+            return BASE_PATHS.CURRENT ? `${BASE_PATHS.CURRENT}/${filename}${cacheBuster}` : `${filename}${cacheBuster}`;
+        }
     },
     
     // Get full URL for gallery asset
     getGalleryAssetUrl(filename) {
-        // Assets are stored in the assets/ directory, but the JSON paths don't include this prefix
-        const assetPath = `assets/${filename}`;
-        const cacheBuster = `?v=${Date.now()}`;
-        return BASE_PATHS.CURRENT 
-            ? `${BASE_PATHS.CURRENT}/${assetPath}${cacheBuster}` 
-            : `${assetPath}${cacheBuster}`;
+        // Use GitHub LFS URL for production, regular path for development
+        if (isGitHubPages) {
+            return `https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/docs/assets/${filename}`;
+        } else {
+            // Local development - use regular path
+            const assetPath = `assets/${filename}`;
+            const cacheBuster = `?v=${Date.now()}`;
+            return `${assetPath}${cacheBuster}`;
+        }
     },
     
     // Check if we're in development
