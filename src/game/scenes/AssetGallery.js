@@ -465,6 +465,13 @@ export class AssetGallery extends Scene {
 // This function grabs a frame and adds it as a Phaser texture
 function createVideoThumbnail(scene, videoPath, key, seekTime = 1) {
     return new Promise((resolve, reject) => {
+        // Skip video thumbnails on GitHub Pages due to CORS issues
+        if (PATH_UTILS.isProduction()) {
+            console.log(`Skipping video thumbnail creation for ${key} due to CORS restrictions`);
+            reject(new Error('Video thumbnails disabled on GitHub Pages'));
+            return;
+        }
+        
         const video = document.createElement('video');
         // Use centralized path configuration for video URLs
         const fullVideoPath = PATH_UTILS.getGalleryAssetUrl(videoPath);
