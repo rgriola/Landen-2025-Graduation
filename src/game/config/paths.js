@@ -55,10 +55,11 @@ export const PATH_UTILS = {
     
     // Get full URL for gallery asset
     getGalleryAssetUrl(filename) {
-        const prefix = filename.startsWith('assets/') ? '' : 'assets/';
+        // Assets are stored in the assets/ directory, but the JSON paths don't include this prefix
+        const assetPath = `assets/${filename}`;
         return BASE_PATHS.CURRENT 
-            ? `${BASE_PATHS.CURRENT}/${prefix}${filename}` 
-            : `${prefix}${filename}`;
+            ? `${BASE_PATHS.CURRENT}/${assetPath}` 
+            : assetPath;
     },
     
     // Check if we're in development
