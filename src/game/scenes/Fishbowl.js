@@ -15,21 +15,30 @@ export class Fishbowl extends Scene {
         const width = this.scale.gameSize.width;
         const height = this.scale.gameSize.height;
 
-        // Add background video with error handling
+        // Try to add background video with CORS handling
         try {
             this.bgVideo = this.add.video(width / 2, height / 2, 'background_rivertimelapse');
             this.htmlVideo = this.bgVideo.video;
             
             // Handle case where video didn't load
             if (!this.htmlVideo) {
-                console.warn('Background video failed to load - using fallback');
-                this.bgVideo = null;
-                this.htmlVideo = null;
+                console.warn('Background video failed to load - using fallback image');
+                this.createFallbackBackground(width, height);
+            } else {
+                // Add error handler for CORS issues
+                this.bgVideo.on('error', () => {
+                    console.warn('Video CORS error - switching to fallback image');
+                    if (this.bgVideo) {
+                        this.bgVideo.destroy();
+                        this.bgVideo = null;
+                        this.htmlVideo = null;
+                    }
+                    this.createFallbackBackground(width, height);
+                });
             }
         } catch (error) {
             console.warn('Error creating background video:', error);
-            this.bgVideo = null;
-            this.htmlVideo = null;
+            this.createFallbackBackground(width, height);
         }
 
         // Info text for live display
@@ -73,7 +82,13 @@ export class Fishbowl extends Scene {
 
         // Play the video if it loaded successfully
         if (this.bgVideo) {
-            this.bgVideo.play(true);
+            try {
+                this.bgVideo.play(true);
+            } catch (corsError) {
+                console.warn('CORS error during video playback - switching to fallback');
+                this.bgVideo.destroy();
+                this.createFallbackBackground(width, height);
+            }
         }
 
     }
@@ -99,6 +114,11 @@ export class Fishbowl extends Scene {
         } else if (this.bgVideo) {
             // If video exists but metadata not loaded, just center
             this.bgVideo.setPosition(width / 2, height / 2);
+        } else if (this.fallbackBg) {
+            // Resize fallback background image to fill screen
+            this.fallbackBg.setPosition(width / 2, height / 2);
+            const scale = Math.max(width / this.fallbackBg.width, height / this.fallbackBg.height);
+            this.fallbackBg.setScale(scale);
         }
 
         // Update live info text with safe property access
@@ -119,5 +139,18 @@ export class Fishbowl extends Scene {
         } else {
             this.scale.stopFullscreen();
         }
+    }
+
+    createFallbackBackground(width, height) {
+        // Use the main background image as fallback
+        this.bgVideo = null;
+        this.htmlVideo = null;
+        
+        // Add a static background image
+        this.fallbackBg = this.add.image(width / 2, height / 2, 'background')
+            .setOrigin(0.5, 0.5)
+            .setScale(3);
+        
+        console.log('Using fallback background image');
     }
 }

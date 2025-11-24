@@ -62,12 +62,16 @@ export class Preloader extends Scene
             this.load.audio(audio.key, PATH_UTILS.getGalleryAssetUrl(audio.path));
         });
         
-        // Load all videos using centralized path configuration
-        manifest.videos.forEach(vid => {
-            const videoUrl = PATH_UTILS.getGalleryAssetUrl(vid.path);
-            console.log(`Loading video: ${vid.key} from ${videoUrl}`);
-            this.load.video(vid.key, videoUrl, vid.loop || false, vid.muted || false);
-        });
+        // Load videos only in development - skip on GitHub Pages due to CORS
+        if (PATH_UTILS.isDevelopment()) {
+            manifest.videos.forEach(vid => {
+                const videoUrl = PATH_UTILS.getGalleryAssetUrl(vid.path);
+                console.log(`Loading video: ${vid.key} from ${videoUrl}`);
+                this.load.video(vid.key, videoUrl, vid.loop || false, vid.muted || false);
+            });
+        } else {
+            console.log('Skipping video loading on GitHub Pages due to CORS restrictions');
+        }
 
         // Add error handling for failed loads
         this.load.on('loaderror', (file) => {
