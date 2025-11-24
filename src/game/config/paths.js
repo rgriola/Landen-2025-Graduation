@@ -1,6 +1,6 @@
 /**
- * Centralized Path Configuration
- * Handles base URLs for development and production environments
+ * Centralized Configuration
+ * Handles paths, viewport settings, and environment detection
  */
 
 // Detect environment based on hostname
@@ -40,6 +40,51 @@ export const ASSET_PATHS = {
     // Icons for PWA manifest
     get ICONS() {
         return `${BASE_PATHS.CURRENT}/icons`;
+    }
+};
+
+// Viewport configuration
+export const VIEWPORT_CONFIG = {
+    // Default game resolution
+    WIDTH: 1920,
+    HEIGHT: 1080,
+    
+    // Scale settings
+    SCALE_MODE: 'FIT', // Options: FIT, RESIZE, NONE, etc.
+    AUTO_CENTER: 'CENTER_BOTH', // Options: CENTER_BOTH, CENTER_HORIZONTALLY, CENTER_VERTICALLY, NO_CENTER
+    ZOOM: 1.0,
+    
+    // Parent container
+    PARENT_ELEMENT: 'game-container',
+    FULLSCREEN_TARGET: 'game-container',
+    
+    // Helper methods
+    getAspectRatio() {
+        return this.WIDTH / this.HEIGHT;
+    },
+    
+    isLandscape() {
+        return this.WIDTH > this.HEIGHT;
+    },
+    
+    // Get responsive dimensions (for future use)
+    getResponsiveDimensions() {
+        const windowRatio = window.innerWidth / window.innerHeight;
+        const gameRatio = this.getAspectRatio();
+        
+        if (windowRatio > gameRatio) {
+            // Window is wider than game ratio
+            return {
+                width: window.innerHeight * gameRatio,
+                height: window.innerHeight
+            };
+        } else {
+            // Window is taller than game ratio
+            return {
+                width: window.innerWidth,
+                height: window.innerWidth / gameRatio
+            };
+        }
     }
 };
 
@@ -89,5 +134,7 @@ console.log('Path Configuration:', {
 
 // https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/public/assets/1974.jpg
 // https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/docs/assets/1974.jpg
+// https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/raw/refs/heads/main/docs/assets/i-Love-you-dakota.webm
+
 // docs/assets/1974.jpg
 // public/assets/1974.jpg
