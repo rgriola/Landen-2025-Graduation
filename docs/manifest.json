@@ -1,7 +1,7 @@
 {
   "name": "Landen 2025 Graduation",
   "short_name": "Landen Grad",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "fullscreen",
   "background_color": "#000000",
   "theme_color": "#000000",

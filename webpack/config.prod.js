@@ -69,6 +69,11 @@ module.exports = {
         new CopyPlugin({
     patterns: [
         { from: 'public/assets', to: 'assets' },
+        { from: 'public/icons', to: 'icons' },
+        { from: 'public/assets.json', to: 'assets.json' },
+        { from: 'public/bg.png', to: 'bg.png' },
+        { from: 'public/logo.png', to: 'logo.png' },
+        { from: 'public/full-screen.png', to: 'full-screen.png' },
         { from: 'public/favicon.png', to: 'favicon.png' },
         { from: 'public/manifest.json', to: 'manifest.json' },
         { from: 'public/service-worker.js', to: 'service-worker.js' },

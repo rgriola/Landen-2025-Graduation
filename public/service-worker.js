@@ -1,17 +1,23 @@
 // Cache name - change this when you update your game
 const CACHE_NAME = 'landen-grad-v1';
 
-const BASE_PATH = self.location.pathname.startsWith('/Landen_2025_Grad/')
+const BASE_PATH = self.location.pathname.startsWith('/Landen-2025-Graduation/')
+  ? '/Landen-2025-Graduation'
+  : self.location.pathname.startsWith('/Landen_2025_Grad/')
   ? '/Landen_2025_Grad'
   : '';
 
 const ASSETS_TO_CACHE = [
   `${BASE_PATH}/`,
   `${BASE_PATH}/index.html`,
-  `${BASE_PATH}/app.js`,
-  `${BASE_PATH}/assets/bg.png`,
-  `${BASE_PATH}/assets/logo.png`,
-  // etc.
+  `${BASE_PATH}/bundle.min.js`,
+  `${BASE_PATH}/style.css`,
+  `${BASE_PATH}/bg.png`,
+  `${BASE_PATH}/logo.png`,
+  `${BASE_PATH}/full-screen.png`,
+  `${BASE_PATH}/favicon.png`,
+  `${BASE_PATH}/assets.json`,
+  `${BASE_PATH}/manifest.json`
 ];
 
 // Install event - caches assets
