@@ -59,8 +59,8 @@ export const PATH_UTILS = {
     
     // Get full URL for gallery asset
     getGalleryAssetUrl(filename) {
-        // Use GitHub LFS URL for production, regular path for development
         if (isGitHubPages) {
+            // Use GitHub LFS for all assets (images and videos)
             return `https://media.githubusercontent.com/media/rgriola/Landen-2025-Graduation/refs/heads/main/docs/assets/${filename}`;
         } else {
             // Local development - use regular path
