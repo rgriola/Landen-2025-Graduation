@@ -14,8 +14,7 @@ module.exports = {
     entry: "./src/main.js",
     output: {
         path: path.resolve(process.cwd(), 'dist'),
-        filename: "./bundle.min.js",
-        publicPath: '/Landen-2025-Graduation/'
+        filename: "./bundle.min.js"
     },
     devtool: false,
     performance: {
