@@ -1,32 +1,33 @@
 /**
- * Asset Manager for Phaser Game
+ * Asset Manager for Phaser Game (JSON version)
  * 
- * This script scans the assets directory and updates the assets.js file.
+ * This script scans the assets directory and updates the assets.json file.
  * It preserves all values for existing assets and only adds/removes assets as needed.
- * Uses base paths without "assets/" prefix for consistency with Phaser loading.
  * Handles "particle" assets in a dedicated array, with no duplication in other arrays.
  * Preserves ALL fields for existing assets (including custom fields).
- */
+ * 
+ * Usage:
+ *   node generateAssetsJson.js [relative/path/to/assets/folder] [output/path/assets.json]
+ *
+ *   node generateAssetsJson.js ./public/assets ./public/assets.json
+ * */
 
 const fs = require('fs');
 const path = require('path');
 
 // === CONFIGURATION ===
+const assetDirArg = process.argv[2];
+const outputFileArg = process.argv[3];
+
 const config = {
-    assetDir: path.join(__dirname, 'public', 'assets'),
-    outputFile: path.join(__dirname, 'src', 'game', 'assets.js'),
+    assetDir: assetDirArg ? path.resolve(assetDirArg) : path.join(__dirname, 'public', 'assets'),
+    outputFile: outputFileArg ? path.resolve(outputFileArg) : path.join(__dirname, 'src', 'game', 'assets.json'),
     extensions: {
         images: ['.png', '.jpg', '.jpeg', '.gif', '.webp'],
         audio: ['.mp3', '.ogg', '.wav', '.m4a'],
         video: ['.mp4', '.webm', '.ogg']
-    },
-    markerComment: '// === MANUAL ASSETS CODE BELOW ==='
+    }
 };
-
-// === DEBUG HELPERS ===
-function logAsset(action, type, asset) {
-    console.log(`[${action}] (${type}) ${asset.key}: ${asset.path} - Label: "${asset.label}"`);
-}
 
 // === FILE SCANNER ===
 function scanAssetDirectory() {
@@ -42,9 +43,6 @@ function scanAssetDirectory() {
         },
         existing: readExistingAssets()
     };
-    
-    // Log existing assets
-    logCurrentAssets(assetCollections.existing);
     
     // Scan for files
     walkDirectory(config.assetDir, filepath => {
@@ -81,39 +79,20 @@ function readExistingAssets() {
     };
     
     if (!fs.existsSync(config.outputFile)) {
-        console.log(`Warning: Output file not found: ${config.outputFile}`);
         return existingAssets;
     }
     
     try {
         const fileContent = fs.readFileSync(config.outputFile, 'utf8');
-        
-        // Direct method: extract assets using regex for better reliability
+        const json = JSON.parse(fileContent);
         for (const type of Object.keys(existingAssets)) {
-            const regex = new RegExp(`export const ${type} = (\\[[\\s\\S]*?\\]);`);
-            const match = fileContent.match(regex);
-            
-            if (match) {
-                try {
-                    // Clean up JSON for parsing
-                    const cleaned = match[1].replace(/,(\s*[\]}])/g, '$1');
-                    existingAssets[type] = JSON.parse(cleaned);
-                    
-                    // Debug: Check if all assets have labels
-                    existingAssets[type].forEach(asset => {
-                        if (!asset.label) {
-                            console.log(`Warning: Asset missing label: ${asset.path}`);
-                        }
-                    });
-                } catch (e) {
-                    console.error(`ERROR parsing ${type} JSON: ${e.message}`);
-                }
+            if (Array.isArray(json[type])) {
+                existingAssets[type] = json[type];
             }
         }
-        
         return existingAssets;
     } catch (error) {
-        console.error(`Error reading existing file: ${error.message}`);
+        console.error(`Error reading existing JSON file: ${error.message}`);
         return existingAssets;
     }
 }
@@ -135,23 +114,6 @@ function walkDirectory(dir, callback) {
     });
 }
 
-function logCurrentAssets(existingAssets) {
-    console.log('\n--- Current assets.js content ---');
-    for (const [type, assets] of Object.entries(existingAssets)) {
-        console.log(`${type.charAt(0).toUpperCase() + type.slice(1)}: ${assets.length} items`);
-        
-        // Log a sample of assets with their labels
-        if (assets.length > 0) {
-            console.log(`  Sample: ${assets[0].path} - Label: "${assets[0].label}"`);
-            if (assets.length > 1) {
-                console.log(`  Sample: ${assets[1].path} - Label: "${assets[1].label}"`);
-            }
-        }
-    }
-    console.log('--- End of current assets.js content ---\n');
-}
-
-// Normalize path to remove "assets/" prefix
 function normalizePath(assetPath) {
     if (assetPath.startsWith('assets/')) {
         return assetPath.replace('assets/', '');
@@ -182,19 +144,6 @@ function updateAssetList(existingList, foundSet, type) {
     const updated = [];
     const before = new Map(existingList.map(a => [normalizePath(a.path), {...a}]));
 
-    // Debug: Show all found and existing video paths/keys
-    if (type === 'videos') {
-        console.log('\n--- DEBUG: Found video files in directory ---');
-        foundSet.forEach(path => {
-            console.log('Found:', path);
-        });
-        console.log('--- DEBUG: Existing video manifest entries ---');
-        existingList.forEach(asset => {
-            console.log('Manifest:', asset.path, '| key:', asset.key);
-        });
-        console.log('---------------------------------------------\n');
-    }
-
     // Process found assets
     foundSet.forEach(path => {
         if (existingMap.has(path)) {
@@ -202,12 +151,6 @@ function updateAssetList(existingList, foundSet, type) {
             const preserved = JSON.parse(JSON.stringify(original));
             preserved.path = path;
             updated.push(preserved);
-            if (type === 'videos') {
-                console.log(`[KEPT] (video) ${preserved.key}: ${preserved.path} - All fields:`, preserved);
-            }
-            // else if (type === 'images' || type === 'particles' || type === 'audio') {
-            //     logAsset('KEPT', type, preserved);
-            // }
         } else {
             const base = path.split('/').pop().replace(/\.[^/.]+$/, "");
             const newAsset = {
@@ -216,89 +159,10 @@ function updateAssetList(existingList, foundSet, type) {
                 label: 'NEED LABEL'
             };
             updated.push(newAsset);
-            if (type === 'videos') {
-                console.log(`[ADDED/RESET] (video) ${base}: ${path} - New asset object:`, newAsset);
-                // Try to find a close match by filename only
-                const foundByFilename = existingList.find(a => path.split('/').pop() === a.path.split('/').pop());
-                if (foundByFilename) {
-                    console.log('  Close match by filename only:', foundByFilename);
-                }
-            }
-            // else if (type === 'images' || type === 'particles' || type === 'audio') {
-            //     logAsset('ADDED', type, newAsset);
-            // }
         }
     });
-
-    // Log removed assets
-    existingList.forEach(asset => {
-        const normalizedPath = normalizePath(asset.path);
-        if (!foundSet.has(normalizedPath)) {
-            if (type === 'videos') {
-                console.log(`[REMOVED] (video) ${asset.key}: ${asset.path}`);
-            }
-            // else if (type === 'images' || type === 'particles' || type === 'audio') {
-            //     logAsset('REMOVED', type, asset);
-            // }
-        }
-    });
-
-    // Debug: verify no labels were changed
-    updated.forEach(asset => {
-        const normalizedPath = normalizePath(asset.path);
-        const original = before.get(normalizedPath);
-        if (original && original.label !== asset.label && type === 'videos') {
-            console.log(`CRITICAL ERROR: Label changed for ${asset.path}`);
-            console.log(`  OLD: "${original.label}"`);
-            console.log(`  NEW: "${asset.label}"`);
-        }
-    });
-
-    // Debug: List unmatched foundSet and existingList paths for videos only
-    if (type === 'videos') {
-        const unmatchedFound = Array.from(foundSet).filter(path => !existingMap.has(path));
-        const unmatchedExisting = existingList.map(a => normalizePath(a.path)).filter(path => !foundSet.has(path));
-        if (unmatchedFound.length > 0) {
-            console.log(`Unmatched foundSet paths for videos:`, unmatchedFound);
-        }
-        if (unmatchedExisting.length > 0) {
-            console.log(`Unmatched existingList paths for videos:`, unmatchedExisting);
-        }
-    }
 
     return updated;
-}
-
-function preserveManualCode() {
-    if (!fs.existsSync(config.outputFile)) {
-        return `\n${config.markerComment}\n`;
-    }
-    
-    try {
-        const existing = fs.readFileSync(config.outputFile, 'utf8');
-        if (existing.includes(config.markerComment)) {
-            return existing.substring(existing.indexOf(config.markerComment));
-        }
-    } catch (error) {
-        console.error(`Error reading file for manual code: ${error.message}`);
-    }
-    
-    return `\n${config.markerComment}\n`;
-}
-
-function generateOutputFile(updatedAssets, manualCode) {
-    // Spacing for better readability
-    const jsonSpacing = 4;
-    
-    const output = `// AUTO-GENERATED FILE. Edit only with generateAssetsJson.js!
-export const images = ${JSON.stringify(updatedAssets.images, null, jsonSpacing)};
-export const particles = ${JSON.stringify(updatedAssets.particles, null, jsonSpacing)};
-export const audio = ${JSON.stringify(updatedAssets.audio, null, jsonSpacing)};
-export const videos = ${JSON.stringify(updatedAssets.videos, null, jsonSpacing)};
-
-${manualCode.trimStart()}
-`;
-    return output;
 }
 
 // === MAIN EXECUTION ===
@@ -312,11 +176,8 @@ function main() {
         // Update asset lists
         const updatedAssets = updateAssetLists(assetCollections);
         
-        // Preserve manual code
-        const manualCode = preserveManualCode();
-        
-        // Generate output
-        const output = generateOutputFile(updatedAssets, manualCode);
+        // Generate output (pure JSON)
+        const output = JSON.stringify(updatedAssets, null, 2);
         
         // Write to file
         fs.writeFileSync(config.outputFile, output);
@@ -334,18 +195,3 @@ function main() {
 
 // Execute the main function
 main();
-
-/*
---------------------------------------------------------------------------------
-How this script works:
-- Scans the assets directory for images, particles, audio, and videos.
-- Uses base paths (no "assets/" prefix) for all assets.
-- Handles "particle" assets in a dedicated array, with no duplication in other arrays.
-- Reads the existing assets.js file to preserve ALL values for existing assets.
-- Only adds new assets if they are new to the directory, and only removes assets if the file no longer exists.
-- Does NOT modify or change any values for existing assets (including label and custom fields).
-- Logs which assets were added or removed.
-- Logs the current list in assets.js before making changes.
-- Preserves any manual code below the marker in assets.js.
---------------------------------------------------------------------------------
-*/

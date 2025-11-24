@@ -23,10 +23,17 @@ ol, ul {
     list-style: none;
 }
 
-img, video {
+img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* Prevent global video CSS from affecting Phaser's video objects */
+canvas + video, .phaser-video {
+    max-width: none !important;
+    height: auto !important;
+    display: block !important;
 }
 
 a {

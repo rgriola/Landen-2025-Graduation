@@ -62,7 +62,7 @@ export const FONTS = {
             color: '#F01643',
             stroke: '#ffffff',
             strokeThickness: 4,
-            align: 'center',
+            align: 'left',
         },
         
         // Secondary heading style
