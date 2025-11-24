@@ -53,7 +53,8 @@ module.exports = {
                 { from: 'public/assets', to: 'assets' },
                 { from: 'public/favicon.png', to: 'favicon.png' },
                 { from: 'public/manifest.json', to: 'manifest.json' },
-                { from: 'public/service-worker.js', to: 'service-worker.js' },
+                // Skip service worker in development
+                // { from: 'public/service-worker.js', to: 'service-worker.js' },
                 { from: './style.css', to: 'style.css' }
             ],
         }),

@@ -465,7 +465,9 @@ export class AssetGallery extends Scene {
 function createVideoThumbnail(scene, videoPath, key, seekTime = 1) {
     return new Promise((resolve, reject) => {
         const video = document.createElement('video');
-        video.src = videoPath;
+        // Ensure the video path includes the assets folder
+        const fullVideoPath = videoPath.startsWith('assets/') ? videoPath : `assets/${videoPath}`;
+        video.src = fullVideoPath;
         video.crossOrigin = 'anonymous';
         video.currentTime = seekTime;
         video.muted = true;

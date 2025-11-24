@@ -1,22 +1,25 @@
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    // Determine appropriate path based on hostname
+    // Only register service worker in production (GitHub Pages)
     const isGithubPages = window.location.hostname === 'rgriola.github.io';
-    const swPath = isGithubPages ? '/Landen_2025_Grad/service-worker.js' : '/service-worker.js';
+    const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
-    navigator.serviceWorker.register(swPath)
-      .then((registration) => {
-        console.log('ServiceWorker registration successful with scope:', registration.scope);
-      })
-      .catch((err) => {
-        // Log but don't break the app
-        console.log('ServiceWorker registration failed (app will still work):', err);
-      });
+    if (isGithubPages) {
+      const swPath = '/Landen_2025_Grad/service-worker.js';
+      navigator.serviceWorker.register(swPath)
+        .then((registration) => {
+          console.log('ServiceWorker registration successful with scope:', registration.scope);
+        })
+        .catch((err) => {
+          console.log('ServiceWorker registration failed (app will still work):', err);
+        });
+    } else if (isLocalDev) {
+      console.log('Service worker disabled for local development');
+    }
   });
 } else {
-  // Service workers not supported but app continues
   console.log('Service workers not supported in this browser (app will still work)');
-  }
+}
 
 import { Boot } from './scenes/Boot';
 import { Preloader } from './scenes/Preloader';
