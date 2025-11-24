@@ -1,20 +1,18 @@
+import { PATH_UTILS, ASSET_PATHS } from './config/paths.js';
+
 // Service Worker disabled for debugging
 // if ('serviceWorker' in navigator) {
 //   window.addEventListener('load', () => {
-//     // Only register service worker in production (GitHub Pages)
-//     const isGithubPages = window.location.hostname === 'rgriola.github.io';
-//     const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
-//     if (isGithubPages) {
-//       const swPath = '/Landen-2025-Graduation/service-worker.js';
-//       navigator.serviceWorker.register(swPath)
+//     // Use centralized path configuration
+//     if (PATH_UTILS.isProduction()) {
+//       navigator.serviceWorker.register(ASSET_PATHS.SERVICE_WORKER)
 //         .then((registration) => {
 //           console.log('ServiceWorker registration successful with scope:', registration.scope);
 //         })
 //         .catch((err) => {
 //           console.log('ServiceWorker registration failed (app will still work):', err);
 //         });
-//     } else if (isLocalDev) {
+//     } else if (PATH_UTILS.isDevelopment()) {
 //       console.log('Service worker disabled for local development');
 //     }
 //   });

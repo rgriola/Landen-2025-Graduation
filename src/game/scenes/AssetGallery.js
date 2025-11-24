@@ -1,5 +1,6 @@
 import { Scene } from 'phaser';
 import { images, videos, audio, particles } from '../assets.js';
+import { PATH_UTILS } from '../config/paths.js';
 
 export class AssetGallery extends Scene {
     constructor() {
@@ -465,8 +466,9 @@ export class AssetGallery extends Scene {
 function createVideoThumbnail(scene, videoPath, key, seekTime = 1) {
     return new Promise((resolve, reject) => {
         const video = document.createElement('video');
-        // Ensure the video path includes the assets folder
-        const fullVideoPath = videoPath.startsWith('assets/') ? videoPath : `assets/${videoPath}`;
+        // Use centralized path configuration for video URLs
+        const fullVideoPath = PATH_UTILS.getGalleryAssetUrl(videoPath);
+        console.log(`Creating video thumbnail for ${key} from ${fullVideoPath}`);
         video.src = fullVideoPath;
         video.crossOrigin = 'anonymous';
         video.currentTime = seekTime;

@@ -1,4 +1,5 @@
 import { Scene } from 'phaser';
+import { PATH_UTILS } from '../config/paths.js';
 
 export class Preloader extends Scene
 {
@@ -28,7 +29,7 @@ export class Preloader extends Scene
 
     preload() {
         // Load the manifest first (essential assets already loaded in Boot scene)
-        this.load.json('assetsManifest', 'assets.json');
+        this.load.json('assetsManifest', PATH_UTILS.getRootAssetUrl('assets.json'));
     }
 
     create () {
@@ -38,32 +39,40 @@ export class Preloader extends Scene
             return;
         }
 
-        // Load all images with assets/ prefix
+        // Load all images using centralized path configuration
         manifest.images.forEach(img => {
             const path = img.path || `${img.key}.png`;
-            this.load.image(img.key, `assets/${path}`);
+            const fullPath = PATH_UTILS.getGalleryAssetUrl(path);
+            console.log(`Loading image: ${img.key} from ${fullPath}`);
+            this.load.image(img.key, fullPath);
         });
         
-        // Load all particles with assets/ prefix
+        // Load all particles using centralized path configuration
         manifest.particles.forEach(p => {
             const path = p.path || `${p.key}.png`;
-            this.load.image(p.key, `assets/${path}`);
+            this.load.image(p.key, PATH_UTILS.getGalleryAssetUrl(path));
         });
         
-        // Load all audio with assets/ prefix
+        // Load all audio using centralized path configuration
         manifest.audio.forEach(audio => {
-            this.load.audio(audio.key, `assets/${audio.path}`);
+            this.load.audio(audio.key, PATH_UTILS.getGalleryAssetUrl(audio.path));
         });
         
-        // Load all videos with assets/ prefix
+        // Load all videos using centralized path configuration
         manifest.videos.forEach(vid => {
-            this.load.video(vid.key, `assets/${vid.path}`, vid.loop || false, vid.muted || false);
+            this.load.video(vid.key, PATH_UTILS.getGalleryAssetUrl(vid.path), vid.loop || false, vid.muted || false);
+        });
+
+        // Add error handling for failed loads
+        this.load.on('loaderror', (file) => {
+            console.error(`Failed to load file: ${file.type} "${file.key}" from URL: ${file.url}`);
         });
 
         // Start loading the queued assets
         this.load.once('complete', () => {
             // Store manifest globally
             this.registry.set('assetsManifest', manifest);
+            console.log('All assets loaded successfully. Starting MainMenu...');
             this.scene.start('MainMenu');
         });
         this.load.start();
