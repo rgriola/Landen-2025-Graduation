@@ -38,7 +38,7 @@ npm run build:github
 
 ## 📱 Live Demo
 
-Visit the live demo: [https://rgriola.github.io/Landen_2025_Grad/](https://rgriola.github.io/Landen_2025_Grad/)
+Visit the live demo: [https://rgriola.github.io/Landen-2025-Graduation/](https://rgriola.github.io/Landen-2025-Graduation/)
 
 ## 🚀 Deploying to GitHub Pages
 

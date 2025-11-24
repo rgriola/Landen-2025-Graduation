@@ -3,8 +3,8 @@ const CACHE_NAME = 'landen-grad-v1';
 
 const BASE_PATH = self.location.pathname.startsWith('/Landen-2025-Graduation/')
   ? '/Landen-2025-Graduation'
-  : self.location.pathname.startsWith('/Landen_2025_Grad/')
-  ? '/Landen_2025_Grad'
+  : self.location.pathname.startsWith('/Landen-2025-Graduation/')
+  ? '/Landen-2025-Graduation'
   : '';
 
 const ASSETS_TO_CACHE = [

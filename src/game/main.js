@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
     const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
     if (isGithubPages) {
-      const swPath = '/Landen_2025_Grad/service-worker.js';
+      const swPath = '/Landen-2025-Graduation/service-worker.js';
       navigator.serviceWorker.register(swPath)
         .then((registration) => {
           console.log('ServiceWorker registration successful with scope:', registration.scope);
