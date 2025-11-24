@@ -76,7 +76,8 @@ module.exports = {
         { from: 'public/full-screen.png', to: 'full-screen.png' },
         { from: 'public/favicon.png', to: 'favicon.png' },
         { from: 'public/manifest.json', to: 'manifest.json' },
-        { from: 'public/service-worker.js', to: 'service-worker.js' },
+        // Service worker disabled for debugging
+        // { from: 'public/service-worker.js', to: 'service-worker.js' },
         { from: './style.css', to: 'style.css' }
     ],
 }),

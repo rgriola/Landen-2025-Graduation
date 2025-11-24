@@ -1,25 +1,28 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    // Only register service worker in production (GitHub Pages)
-    const isGithubPages = window.location.hostname === 'rgriola.github.io';
-    const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+// Service Worker disabled for debugging
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     // Only register service worker in production (GitHub Pages)
+//     const isGithubPages = window.location.hostname === 'rgriola.github.io';
+//     const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
-    if (isGithubPages) {
-      const swPath = '/Landen-2025-Graduation/service-worker.js';
-      navigator.serviceWorker.register(swPath)
-        .then((registration) => {
-          console.log('ServiceWorker registration successful with scope:', registration.scope);
-        })
-        .catch((err) => {
-          console.log('ServiceWorker registration failed (app will still work):', err);
-        });
-    } else if (isLocalDev) {
-      console.log('Service worker disabled for local development');
-    }
-  });
-} else {
-  console.log('Service workers not supported in this browser (app will still work)');
-}
+//     if (isGithubPages) {
+//       const swPath = '/Landen-2025-Graduation/service-worker.js';
+//       navigator.serviceWorker.register(swPath)
+//         .then((registration) => {
+//           console.log('ServiceWorker registration successful with scope:', registration.scope);
+//         })
+//         .catch((err) => {
+//           console.log('ServiceWorker registration failed (app will still work):', err);
+//         });
+//     } else if (isLocalDev) {
+//       console.log('Service worker disabled for local development');
+//     }
+//   });
+// } else {
+//   console.log('Service workers not supported in this browser (app will still work)');
+// }
+
+console.log('Service Worker disabled for debugging');
 
 import { Boot } from './scenes/Boot';
 import { Preloader } from './scenes/Preloader';
